@@ -1,0 +1,25 @@
+# defining the prices for different destination 
+def flight_price(city_flights):
+    flight_cost = {'rome' : 157, 'paris': 112, 'berlin' : 139, 'london' : 89}
+    return flight_cost.get(city_flights.lower(), 0) # putting into lower for simplicity 
+# hotel pricing per night * length
+def hotel_price(num_nights):
+    night_cost = 100
+    total_cost = night_cost * num_nights
+    return total_cost
+# rental price * length
+def car_cost(rental_days):
+    day_cost = 50
+    total_cost = day_cost * rental_days
+    return total_cost 
+# taking input and changing to lower 
+city_flights = input("Where would you like to fly to? Rome , Paris , Berlin, London: " ).lower()
+if city_flights not in ['rome', 'paris', 'berlin', 'london']:
+    print("Please enter a valid city from the list.")
+    exit()
+num_nights = int(input("How many nights will you be staying? "))
+rental_days = int(input("How many days do you need to rent a car for? "))
+# calculate total holiday cost
+total_cost = hotel_price(num_nights) + flight_price(city_flights) + car_cost(rental_days)
+# print the total holiday cost
+print("Your total holiday cost is £", total_cost)
